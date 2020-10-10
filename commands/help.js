@@ -10,7 +10,7 @@ const embed = new Discord.MessageEmbed()
     .addField("General - 4", "`$img`, `$math`, `$avatar`, `$serverinfo`")
     .addField("Games - 2", "`$csgo`, `$csgofloat`")
     .addField("Fun - 6", "`$fart`, `$neko`, `$dogs`, `$kitsune`, `$spank`, `$high-five`")
-    .addField("Fun - 1", "`$deletemsg`")
+    .addField("Admin - 1", "`$deletemsg`")
     .addField("Music - 12", "`$play`, `$stop`, `$pause`, `$skip`, `$queue`, `$nowplaying`, `$joinchannel`, `$deletetrack`, `$volume`, `$playother`, `$ytsearch`")
 	.setTimestamp()
 	.setFooter('https://github.com/FeelGitHub', 'https://i.imgur.com/hICIEnz.png');
