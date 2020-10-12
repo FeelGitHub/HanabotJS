@@ -1,5 +1,15 @@
 const active = new Map();
 const talkedRecently = new Set();
+const Discord = require('discord.js');
+const mysql = require('mysql');
+const config = require("../jsonFiles/config.json");
+
+const con = mysql.createConnection({
+	host: config.host,
+	user: config.user,
+	password: config.password,
+	database: config.database,
+});
 
 module.exports = (client, message) => {
     let ops = {
@@ -29,6 +39,10 @@ module.exports = (client, message) => {
         // Run the command
         cmd.run(client, message, args, ops);
 
+        con.query(`UPDATE funfacts SET funfacts.value = funfacts.value + 1 WHERE name="commands"`, (err, rows) => {
+          if(err) throw err;
+        })
+
         // Adds the user to the set so that they can't talk for a minute
         talkedRecently.add(message.author.id);
         setTimeout(() => {
@@ -36,6 +50,4 @@ module.exports = (client, message) => {
           talkedRecently.delete(message.author.id);
         }, 1500);
     }
-  
-    
 };
