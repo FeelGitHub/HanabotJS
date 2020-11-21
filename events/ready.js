@@ -12,5 +12,5 @@ const con = mysql.createConnection({
 module.exports = (client) => {
 	console.log('I am ready to serve you bby!');
 	client.user.setStatus('online');
-	client.user.setActivity('in' + client.guilds.cache.size + ' servers, type .help for help');
+	client.user.setActivity('in ' + client.guilds.cache.size + ' servers, type .help for help');
 };
