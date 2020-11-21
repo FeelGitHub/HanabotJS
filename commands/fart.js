@@ -16,3 +16,10 @@ exports.run = async (client, message, args) => {
         message.reply('You need to join a voice channel first!');
     }
 };
+
+module.exports.config = {
+    name: "Fart",
+    description: "Play a random fart sound",
+    usage: "$fart",
+    accessableby: "Members"
+}

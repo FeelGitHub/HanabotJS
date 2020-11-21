@@ -12,3 +12,10 @@ exports.run = async (client, message, args) => {
     .setImage(body.file) 
     message.channel.send({embed});
 };
+
+module.exports.config = {
+    name: "Cat",
+    description: "Send a cute cat",
+    usage: "$cat",
+    accessableby: "Members"
+}

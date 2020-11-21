@@ -15,3 +15,10 @@ exports.run = async (client, message, args, tools) => {
 
     message.channel.send({embed})
 };
+
+module.exports.config = {
+    name: "Feed",
+    description: "Feed someone",
+    usage: "$feed",
+    accessableby: "Members"
+}

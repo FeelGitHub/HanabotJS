@@ -26,3 +26,8 @@ exports.run = (client, message, args) => {
         })
         .catch(console.error);
 };
+module.exports.config = {
+    name: "RussianRoulette",
+    usage: "$russianroulette",
+    accessableby: "Members"
+}

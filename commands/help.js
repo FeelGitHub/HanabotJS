@@ -1,25 +1,52 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 
-exports.run = async (client, message, args) => {
+module.exports.run = async (bot, message, args) => {
+    //We have to set a argument for the help command beacuse its going to have a seperate argument.
+    let helpArray = message.content.split(" ");
+    let helpArgs = helpArray.slice(1);
 
-const embed = new Discord.MessageEmbed()
-	.setColor('#FFB6C1')
-	.setAuthor('HanaBotJS help', 'https://i.imgur.com/hICIEnz.png', 'https://feellings.eu')
-    .addField("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬", "[CLICK TO INVITE BOT TO YOUR SERVER!](https://discord.com/oauth2/authorize?client_id=498261846181019648&permissions=8&scope=bot)")
-    .addField('▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬', ' Commands:')
-    .addField("General - 5", "`$img`, `$math`, `$avatar`, `$serverinfo`, `$duckduckgo`")
-    .addField("Games - 2", "`$csgo`, `$csgofloat`")
-    .addField("Fun - 14", "`$fart`, `$neko`, `$dogs`, `$cat`, `$kitsune`, `$moe`, `$spank`, `$high-five`, `$kiss`, `$f`, `$rps`, `$owoify`, `$feed`, `$russianroulette`")
-    .addField("Admin - 1", "`$deletemsg`")
-    .addField("Music - 12", "`$play`, `$stop`, `$pause`, `$skip`, `$queue`, `$nowplaying`, `$joinchannel`, `$deletetrack`, `$volume`, `$playother`, `$ytsearch`")
-	.setTimestamp()
-	.setFooter('https://github.com/FeelGitHub', 'https://i.imgur.com/hICIEnz.png');
+    //Custom Help command by using the second argument.
+    if(helpArgs[0] === 'gaming') {
+        return message.reply("This is a Gaming information Command.")
+    }
 
-    message.author.send({embed}).catch(e =>{
-        if (e) {
-        message.channel.send(`Error. You seems to be locking your DMs so I'll send it here instead.`);
-        message.channel.send({embed});
-        }
-      });
-      message.reply("Check your DMs!");
+    //Normal usage of (prefix)help without any args. (Shows all of the commands and you should set the commands yourself)
+    if(!helpArgs[0]) {
+        var embed = new Discord.MessageEmbed()
+            .setAuthor(`Here is the Avaible Commands to use:`)
+            .setDescription('```help  | avatar | cat | csgo | csgofloat | dogs | duckduckgo | f | fart | feed | high-five | img | '+
+            'kiss | kitsune | marry | math | moe | neko | owoify | pat | ping | rps | russianroulette | say | serverinfo | spank```')
+            .addFields({ name: 'Prefix', value: '```$```', inline: true})
+            .setColor('#00FFF3')
+            
+        message.channel.send(embed);
+    }
+
+    //Reads the moudle.exports.config (This line of code is on commands folder, each command will read automaticly) by the second argument (the command name) and shows the information of it.
+    if(helpArgs[0]) {
+        let command = helpArgs[0];
+
+        if(bot.commands.has(command)) {
+            
+            command = bot.commands.get(command);
+            var embed = new Discord.MessageEmbed()
+            .setAuthor(`${command.config.name} Command`)
+            .setDescription(`
+            - **Command's Description** ${command.config.description || "There is no Description for this command."}
+            - **Command's Usage:** ${command.config.usage || "No Usage"}
+            - **Command's Permissions:** ${command.config.accessableby || "Members"}
+            - **Command's Aliases:** ${command.config.aliases || "No Aliases"}
+            `)
+            .setColor('#2EFF00')
+
+        message.channel.send(embed);
+    }}
+}
+
+module.exports.config = {
+    name: "help",
+    description: "",
+    usage: "?help",
+    accessableby: "Members",
+    aliases: []
 }

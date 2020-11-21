@@ -14,3 +14,8 @@ exports.run = async (client, message, args, tools) => {
     .setImage(body.url) 
     message.channel.send({embed})
 };
+module.exports.config = {
+    name: "Pat",
+    usage: "$pat",
+    accessableby: "Members"
+}

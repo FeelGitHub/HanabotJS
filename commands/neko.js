@@ -11,3 +11,8 @@ exports.run = async (client, message, args, tools) => {
     .setImage(body.neko) 
     message.channel.send({embed})
 };
+module.exports.config = {
+    name: "Neko",
+    usage: "$neko",
+    accessableby: "Members"
+}

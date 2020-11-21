@@ -10,3 +10,8 @@ exports.run = async (client, message, args) => {
             return message.channel.send('An error happened, more details: ' + err);
         }
 }
+module.exports.config = {
+    name: "Math",
+    usage: "$math",
+    accessableby: "Members"
+}

@@ -39,10 +39,6 @@ module.exports = (client, message) => {
         // Run the command
         cmd.run(client, message, args, ops);
 
-        con.query(`UPDATE funfacts SET funfacts.value = funfacts.value + 1 WHERE name="commands"`, (err, rows) => {
-          if(err) throw err;
-        })
-
         // Adds the user to the set so that they can't talk for a minute
         talkedRecently.add(message.author.id);
         setTimeout(() => {

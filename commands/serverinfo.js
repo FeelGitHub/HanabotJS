@@ -50,4 +50,9 @@ exports.run = (client, message, args) => {
   .setColor(Math.floor(Math.random()*16777215))
   message.channel.send({embed});
 }
-
+module.exports.config = {
+    name: "ServerInfo",
+    description: "Show server informations",
+    usage: "$serverinfo",
+    accessableby: "Members"
+}

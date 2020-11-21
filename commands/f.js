@@ -7,3 +7,9 @@ exports.run = async (client, message, args) => {
         message.channel.send(`${message.author.username} has paid their respect <:MafuHearty:596554617349865493>`)
     }
 };
+module.exports.config = {
+    name: "F",
+    description: "Paid some respect",
+    usage: "$f",
+    accessableby: "Members"
+}

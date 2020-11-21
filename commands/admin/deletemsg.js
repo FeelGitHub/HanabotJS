@@ -15,3 +15,9 @@ exports.run = async (client, message, args) =>{
       await message.channel.bulkDelete(deleteCount).catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
     }   
   }
+
+  module.exports.config = {
+    name: "Deletemsg",
+    usage: "$deletemsg",
+    accessableby: "Admins"
+}

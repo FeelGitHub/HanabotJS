@@ -26,3 +26,8 @@ exports.run = async (client, message, args) => {
         })
     }  
 }
+module.exports.config = {
+    name: "csgofloat",
+    usage: "$csgofloat",
+    accessableby: "Members"
+}

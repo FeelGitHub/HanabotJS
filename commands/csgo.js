@@ -64,3 +64,9 @@ exports.run = async (client, message, args) => {
         message.channel.send(embed);
     })
 }
+
+module.exports.config = {
+    name: "csgo",
+    usage: "$csgo",
+    accessableby: "Members"
+}

@@ -15,3 +15,9 @@ exports.run = async (client, message, args, tools) => {
     .setImage(body.url) 
     message.channel.send({embed})
 };
+module.exports.config = {
+    name: "Kiss",
+    description: "Send a kiss someone",
+    usage: "$kiss",
+    accessableby: "Members"
+}

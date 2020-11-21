@@ -10,3 +10,8 @@ exports.run = async (client, message, args, tools) => {
     
     message.channel.send(body.owo)
 };
+module.exports.config = {
+    name: "Owoify",
+    usage: "$owoify",
+    accessableby: "Members"
+}

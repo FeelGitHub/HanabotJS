@@ -32,3 +32,9 @@ exports.run = async (client, message, args) => {
     message.channel.send( urls[randomimg] );
     });
 }
+module.exports.config = {
+    name: "Image",
+    description: "Search an image",
+    usage: "$img",
+    accessableby: "Members"
+}

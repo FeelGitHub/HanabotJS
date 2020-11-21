@@ -10,3 +10,8 @@ exports.run = (client, message, args) => {
         return message.channel.send({ embed });
    })
 }
+module.exports.config = {
+    name: "Moe",
+    usage: "$moe",
+    accessableby: "Members"
+}
