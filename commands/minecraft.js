@@ -34,6 +34,6 @@ exports.run = async (client, message, args) => {
 module.exports.config = {
     name: "Minecraft",
     description: "Play a random Minecraft music",
-    usage: "$minecraft",
+    usage: "h.minecraft",
     accessableby: "Members"
 }

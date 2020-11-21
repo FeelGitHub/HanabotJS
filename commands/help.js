@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
             .setAuthor(`Here is the Avaible Commands to use:`)
             .setDescription('```help  | avatar | cat | csgo | csgofloat | dogs | duckduckgo | f | fart | feed | high-five | img | '+
             'kiss | kitsune | marry | math | moe | neko | owoify | pat | ping | rps | russianroulette | say | serverinfo | spank | flatearth  | minecraft```')
-            .addFields({ name: 'Prefix', value: '```$```', inline: true})
+            .addFields({ name: 'Prefix', value: '```h.```', inline: true})
             .setColor('#00FFF3')
             
         message.channel.send(embed);
@@ -46,7 +46,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "help",
     description: "",
-    usage: "?help",
+    usage: "h.help",
     accessableby: "Members",
     aliases: []
 }

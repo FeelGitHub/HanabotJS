@@ -20,6 +20,6 @@ exports.run = async (client, message, args) => {
 module.exports.config = {
     name: "Fart",
     description: "Play a random fart sound",
-    usage: "$fart",
+    usage: "h.fart",
     accessableby: "Members"
 }

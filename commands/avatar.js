@@ -20,6 +20,6 @@ exports.run = (client, message, args) => {
 module.exports.config = {
   name: "Avatar",
   description: "",
-  usage: "$avatar",
+  usage: "h.avatar",
   accessableby: "Members"
 }

@@ -28,6 +28,6 @@ exports.run = async (client, message, args) => {
 }
 module.exports.config = {
     name: "csgofloat",
-    usage: "$csgofloat",
+    usage: "h.csgofloat",
     accessableby: "Members"
 }

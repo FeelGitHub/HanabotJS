@@ -28,6 +28,6 @@ exports.run = (client, message, args) => {
 };
 module.exports.config = {
     name: "RussianRoulette",
-    usage: "$russianroulette",
+    usage: "h.russianroulette",
     accessableby: "Members"
 }

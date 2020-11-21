@@ -53,6 +53,6 @@ exports.run = (client, message, args) => {
 module.exports.config = {
     name: "ServerInfo",
     description: "Show server informations",
-    usage: "$serverinfo",
+    usage: "h.serverinfo",
     accessableby: "Members"
 }

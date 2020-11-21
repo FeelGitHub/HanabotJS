@@ -19,6 +19,6 @@ exports.run = async (client, message, args, tools) => {
 module.exports.config = {
     name: "Feed",
     description: "Feed someone",
-    usage: "$feed",
+    usage: "h.feed",
     accessableby: "Members"
 }

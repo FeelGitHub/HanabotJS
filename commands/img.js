@@ -35,6 +35,6 @@ exports.run = async (client, message, args) => {
 module.exports.config = {
     name: "Image",
     description: "Search an image",
-    usage: "$img",
+    usage: "h.img",
     accessableby: "Members"
 }

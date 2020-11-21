@@ -67,6 +67,6 @@ exports.run = async (client, message, args) => {
 
 module.exports.config = {
     name: "csgo",
-    usage: "$csgo",
+    usage: "h.csgo",
     accessableby: "Members"
 }

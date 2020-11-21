@@ -13,6 +13,6 @@ exports.run = async (client, message, args) => {
 };
 module.exports.config = {
     name: "Kitsune",
-    usage: "$kitsune",
+    usage: "h.kitsune",
     accessableby: "Members"
 }

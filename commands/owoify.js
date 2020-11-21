@@ -12,6 +12,6 @@ exports.run = async (client, message, args, tools) => {
 };
 module.exports.config = {
     name: "Owoify",
-    usage: "$owoify",
+    usage: "h.owoify",
     accessableby: "Members"
 }

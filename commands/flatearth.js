@@ -11,6 +11,6 @@ exports.run = async (client, message, args, level) => {
 
 module.exports.config = {
     name: "FlatEarth",
-    usage: "$flatearth",
+    usage: "h.flatearth",
     accessableby: "Members"
 }

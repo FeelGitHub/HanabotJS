@@ -9,6 +9,6 @@ exports.run = (client, msg, args) => {
 module.exports.config = {
     name: "RPS",
     description: "Play rock paper scissors",
-    usage: "$rps",
+    usage: "h.rps",
     accessableby: "Members"
 }

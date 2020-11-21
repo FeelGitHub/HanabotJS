@@ -18,6 +18,6 @@ exports.run = async (client, message, args) =>{
 
 module.exports.config = {
   name: "Deletemsg",
-  usage: "$deletemsg",
+  usage: "h.deletemsg",
   accessableby: "Admins"
 }

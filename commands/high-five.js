@@ -14,6 +14,6 @@ exports.run = async (client, message, args) => {
 }
 module.exports.config = {
     name: "High-Five",
-    usage: "$high-five",
+    usage: "h.high-five",
     accessableby: "Members"
 }

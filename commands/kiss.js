@@ -18,6 +18,6 @@ exports.run = async (client, message, args, tools) => {
 module.exports.config = {
     name: "Kiss",
     description: "Send a kiss someone",
-    usage: "$kiss",
+    usage: "h.kiss",
     accessableby: "Members"
 }

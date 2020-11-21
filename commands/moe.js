@@ -12,6 +12,6 @@ exports.run = (client, message, args) => {
 }
 module.exports.config = {
     name: "Moe",
-    usage: "$moe",
+    usage: "h.moe",
     accessableby: "Members"
 }

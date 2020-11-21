@@ -16,6 +16,6 @@ exports.run = async (client, message, args, tools) => {
 };
 module.exports.config = {
     name: "Spank",
-    usage: "$spank",
+    usage: "h.spank",
     accessableby: "Members"
 }

@@ -13,6 +13,6 @@ exports.run = async (client, message, args, tools) => {
 };
 module.exports.config = {
     name: "Neko",
-    usage: "$neko",
+    usage: "h.neko",
     accessableby: "Members"
 }
