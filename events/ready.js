@@ -14,12 +14,10 @@ module.exports = (client) => {
 	client.user.setStatus('online');
 	let membersCount = client.guilds.cache.map(guild => guild.memberCount).reduce((a, b) => a + b, 0);
 	let channelsCount =  client.guilds.cache.reduce((a, g) => a + g.memberCount, 0);
-	client.user.setActivity('on feellings.eu type h.help for help');
 	var myInterval = setInterval(function() {
 		client.user.setActivity('in ' + client.guilds.cache.size + ' servers. type h.help for help');
 		client.user.setActivity('with ' + membersCount  + ' users. type h.help for help');
 		client.user.setActivity('in ' + channelsCount  + ' channels. type h.help for help');
-		client.user.setActivity('on feellings.eu type h.help for help');
-	}, 600000);
+	}, 30000);
 	
 };
