@@ -15,9 +15,14 @@ module.exports = (client) => {
 	let membersCount = client.guilds.cache.map(guild => guild.memberCount).reduce((a, b) => a + b, 0);
 	let channelsCount =  client.guilds.cache.reduce((a, g) => a + g.memberCount, 0);
 	var myInterval = setInterval(function() {
-		client.user.setActivity('in ' + client.guilds.cache.size + ' servers. type h.help for help');
-		client.user.setActivity('with ' + membersCount  + ' users. type h.help for help');
-		client.user.setActivity('in ' + channelsCount  + ' channels. type h.help for help');
+
+		var description = [
+			'in ' + client.guilds.cache.size + ' servers. type h.help for help',
+			'with ' + membersCount  + ' users. type h.help for help',
+			'in ' + channelsCount  + ' channels. type h.help for help'
+		];
+
+		client.user.setActivity(description[Math.floor(Math.random()*description.length)]);
 	}, 30000);
 	
 };
