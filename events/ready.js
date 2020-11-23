@@ -23,8 +23,10 @@ module.exports = (client) => {
 		client.user.setActivity(description[Math.floor(Math.random()*description.length)]);
 
 		con.query(`UPDATE stats SET stats.value = ${client.guilds.cache.size} WHERE name="servers";`, (err, rows) => {if(err) throw err; })
-		
+
 		con.query(`UPDATE stats SET stats.value = ${membersCount} WHERE name="users";`, (err, rows) => {if(err) throw err; })
+		console.log('Servers :'+client.guilds.cache.size+'\nUsers: '+membersCount);
+		
 	}, 30000);
 	
 };
