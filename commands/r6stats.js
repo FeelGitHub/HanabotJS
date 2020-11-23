@@ -17,6 +17,7 @@ exports.run = async (client, message, args) =>{
       message.channel.send('There was an unexpected error. Please try again later.')
       return;
     })
+    
     if(args[1] == 'pc' || args[1] == 'PC'){
       var icon = "https://i.imgur.com/BSc4Ft5.png";
     } else if (args[1] == 'ps4' || args[1] == 'PS4'){
