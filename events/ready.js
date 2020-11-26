@@ -16,8 +16,8 @@ module.exports = (client) => {
 	var myInterval = setInterval(function() {
 
 		var description = [
-			'in ' + client.guilds.cache.size + ' servers. type h.help for help',
-			'with ' + membersCount  + ' users. type h.help for help',
+			'in ' + client.guilds.cache.size + ' servers. Type h.help for help',
+			'with ' + membersCount  + ' users. Type h.help for help',
 		];
 
 		client.user.setActivity(description[Math.floor(Math.random()*description.length)]);
@@ -27,6 +27,6 @@ module.exports = (client) => {
 		con.query(`UPDATE stats SET stats.value = ${membersCount} WHERE name="users";`, (err, rows) => {if(err) throw err; })
 		console.log('Servers :'+client.guilds.cache.size+'\nUsers: '+membersCount);
 		
-	}, 30000);
+	}, 1800000);
 	
 };
