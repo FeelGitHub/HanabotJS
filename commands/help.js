@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
         var embed = new Discord.MessageEmbed()
             .setAuthor(`Here is the Avaible Commands to use:`)
             .setDescription('```help  | avatar | cat | r6stats | ccsgo | csgofloat | dogs | duckduckgo | f | fart | feed | high-five | img | '+
-            'kiss | kitsune | marry | math | moe | neko | owoify | pat | ping | rps | russianroulette | say | serverinfo | spank | flatearth  | '+
+            'kiss | marry | math | moe | owoify | pat | ping | rps | russianroulette | say | serverinfo | flatearth  | '+
             'minecraft | mcachievement | meme | kick | ban```')
             .addFields({ name: 'Prefix', value: '```h.```', inline: true})
             .setColor('#00FFF3')
