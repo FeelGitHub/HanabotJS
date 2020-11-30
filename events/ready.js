@@ -10,8 +10,8 @@ const con = mysql.createConnection({
 });
 
 module.exports = (client) => {
-	console.log('I am ready to serve you bby!');
 	client.user.setStatus('online');
+	client.user.setActivity('in ' + client.guilds.cache.size + ' servers. Type h.help for help',);
 	let membersCount = client.guilds.cache.map(guild => guild.memberCount).reduce((a, b) => a + b, 0);
 	var myInterval = setInterval(function() {
 
