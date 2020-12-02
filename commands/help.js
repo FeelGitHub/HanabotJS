@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
             .setAuthor(`Here is the Available Commands to use:`)
             .setDescription('```help  | avatar | cat | r6stats | covid | csgo | csgofloat | dogs | duckduckgo | f | fart | feed | high-five | img | '+
             'kiss | marry | math | moe | owoify | pat | ping | rps | russianroulette | say | serverinfo | flatearth  | '+
-            'minecraft | mcachievement | meme | kick | ban```')
+            'minecraft | mcachievement | meme ```')
             .addFields({ name: 'Prefix', value: '```h.```', inline: true})
             .setColor('#00FFF3')
             
