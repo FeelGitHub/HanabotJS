@@ -11,16 +11,11 @@ const con = mysql.createConnection({
 
 module.exports = (client) => {
 	client.user.setStatus('online');
-	client.user.setActivity('in ' + client.guilds.cache.size + ' servers. Type h.help for help',);
+	client.user.setActivity('h. | ' + client.guilds.cache.size + ' servers.');
 	let membersCount = client.guilds.cache.map(guild => guild.memberCount).reduce((a, b) => a + b, 0);
 	var myInterval = setInterval(function() {
 
-		var description = [
-			'in ' + client.guilds.cache.size + ' servers. Type h.help for help',
-			'with ' + membersCount  + ' users. Type h.help for help',
-		];
-
-		client.user.setActivity(description[Math.floor(Math.random()*description.length)]);
+		client.user.setActivity('h. | ' + client.guilds.cache.size + ' servers.');
 
 		con.query(`UPDATE stats SET stats.value = ${client.guilds.cache.size} WHERE name="servers";`, (err, rows) => {if(err) throw err; })
 
