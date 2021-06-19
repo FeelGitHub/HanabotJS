@@ -1,8 +1,8 @@
 module.exports = {
-    name: 'pause',
-    aliases: [],
+    name: 'shuffle',
+    aliases: ['sh'],
     category: 'Music',
-    utilisation: '{prefix}pause',
+    utilisation: '{prefix}shuffle',
 
     execute(client, message) {
         if (!message.member.voice.channel) return message.channel.send(`${client.emotes.error} - You're not in a voice channel !`);
@@ -11,10 +11,8 @@ module.exports = {
 
         if (!client.player.getQueue(message)) return message.channel.send(`${client.emotes.error} - No music currently playing !`);
 
-        if (client.player.getQueue(message).paused) return message.channel.send(`${client.emotes.error} - The music is already paused !`);
+        const success = client.player.shuffle(message);
 
-        const success = client.player.pause(message);
-
-        if (success) message.channel.send(`${client.emotes.success} - Song ${client.player.getQueue(message).playing.title} paused !`);
+        if (success) message.channel.send(`${client.emotes.success} - Queue shuffled **${client.player.getQueue(message).tracks.length}** song(s) !`);
     },
 };

@@ -1,16 +1,20 @@
-exports.run = async (client, message, args, ops) => {
-    let fetched = ops.active.get(message.guild.id);
-    
-    if(!fetched)
-        return message.channel.send("There isn't any music playing in this guild!");
+module.exports = {
+    name: 'resume',
+    aliases: [],
+    category: 'Music',
+    utilisation: '{prefix}resume',
 
-    if(!message.member.voice.channel)
-        return message.channel.send("You are not in a voice channel");          
+    execute(client, message) {
+        if (!message.member.voice.channel) return message.channel.send(`${client.emotes.error} - You're not in a voice channel !`);
 
-    if(!fetched.dispatcher.paused)
-        return message.channel.send("The music isn't paused");
-        
-    fetched.dispatcher.resume();    
-    
-    message.channel.send(`Successfully resumed the track **${fetched.queue[0].songTitle}**`);    
-}
+        if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send(`${client.emotes.error} - You are not in the same voice channel !`);
+
+        if (!client.player.getQueue(message)) return message.channel.send(`${client.emotes.error} - No music currently playing !`);
+
+        if (!client.player.getQueue(message).paused) return message.channel.send(`${client.emotes.error} - The music is already playing !`);
+
+        const success = client.player.resume(message);
+
+        if (success) message.channel.send(`${client.emotes.success} - Song ${client.player.getQueue(message).playing.title} resumed !`);
+    },
+};

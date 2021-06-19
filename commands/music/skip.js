@@ -1,32 +1,18 @@
-exports.run = async (client, message, args, ops) => {
-    let fetched = ops.active.get(message.guild.id);
-    let voiceChannel = message.member.voice.channel;
-    
-    if(!fetched)
-        return message.channel.send("There isn't any music playing in this guild!");
-    
-    if(!voiceChannel)
-        return message.channel.send("You are not in a voice channel");        
+module.exports = {
+    name: 'skip',
+    aliases: ['sk'],
+    category: 'Music',
+    utilisation: '{prefix}skip',
 
-    let userCount = voiceChannel.members.size;
-    
-    let required = Math.ceil(userCount/2);
+    execute(client, message) {
+        if (!message.member.voice.channel) return message.channel.send(`${client.emotes.error} - You're not in a voice channel !`);
 
-    if(!fetched.queue[0].voteSkips)
-        fetched.queue[0].voteSkips = [];
-    
-    if(fetched.queue[0].voteSkips.includes(message.member.id))
-        return message.channel.send(`Sorry you already voted to skip! ${fetched.queue[0].voteSkips.length}/${required} required`)    
+        if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send(`${client.emotes.error} - You are not in the same voice channel !`);
 
-    fetched.queue[0].voteSkips.push(message.member.id);
-    
-    ops.active.set(message.guild.id, fetched);
+        if (!client.player.getQueue(message)) return message.channel.send(`${client.emotes.error} - No music currently playing !`);
 
-    if(fetched.queue[0].voteSkips.length >= required){
-        message.channel.send("Successfully skipped song!");
-        return fetched.dispatcher.emit('end');
-    }
+        const success = client.player.skip(message);
 
-    message.channel.send(`Successfully voted to skip! ${fetched.queue[0].voteSkips.length}/${required} required`);
-
-}
+        if (success) message.channel.send(`${client.emotes.success} - The current music has just been **skipped** !`);
+    },
+};

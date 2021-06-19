@@ -1,8 +1,8 @@
 module.exports = {
-    name: 'pause',
-    aliases: [],
+    name: 'clear-queue',
+    aliases: ['cq'],
     category: 'Music',
-    utilisation: '{prefix}pause',
+    utilisation: '{prefix}clear-queue',
 
     execute(client, message) {
         if (!message.member.voice.channel) return message.channel.send(`${client.emotes.error} - You're not in a voice channel !`);
@@ -11,10 +11,10 @@ module.exports = {
 
         if (!client.player.getQueue(message)) return message.channel.send(`${client.emotes.error} - No music currently playing !`);
 
-        if (client.player.getQueue(message).paused) return message.channel.send(`${client.emotes.error} - The music is already paused !`);
+        if (client.player.getQueue(message).tracks.length <= 1) return message.channel.send(`${client.emotes.error} - There is only one song in the queue.`);
 
-        const success = client.player.pause(message);
+        client.player.clearQueue(message);
 
-        if (success) message.channel.send(`${client.emotes.success} - Song ${client.player.getQueue(message).playing.title} paused !`);
+        message.channel.send(`${client.emotes.success} - The queue has just been **removed** !`);
     },
 };

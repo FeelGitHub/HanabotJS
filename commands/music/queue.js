@@ -1,20 +1,20 @@
-exports.run = async (client, message, args, ops) => {
-    let fetched = ops.active.get(message.guild.id);
-    if(!fetched)
-        return message.channel.send("There isn't any music playing in this guild!");
-    let queue = fetched.queue;
+module.exports = {
+    name: 'queue',
+    aliases: [],
+    category: 'Music',
+    utilisation: '{prefix}queue',
 
-    let resp = '__**Queue**__\n';
+    execute(client, message) {
+        if (!message.member.voice.channel) return message.channel.send(`${client.emotes.error} - You're not in a voice channel !`);
 
-    if(queue.length > 1){
-        for(var i=1; i<queue.length; i++){
-            resp += `${i}. **${queue[i].songTitle}** -- Requested by **${queue[i].requester}**\n`
-        }
+        if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send(`${client.emotes.error} - You are not in the same voice channel !`);
 
-        return message.channel.send(resp);    
-    
-    }
-    else {
-        return message.channel.send(`There are no songs in the queue!`);    
-    }
-}
+        const queue = client.player.getQueue(message);
+
+        if (!client.player.getQueue(message)) return message.channel.send(`${client.emotes.error} - No songs currently playing !`);
+
+        message.channel.send(`**Server queue - ${message.guild.name} ${client.emotes.queue} ${client.player.getQueue(message).loopMode ? '(looped)' : ''}**\nCurrent : ${queue.playing.title} | ${queue.playing.author}\n\n` + (queue.tracks.map((track, i) => {
+            return `**#${i + 1}** - ${track.title} | ${track.author} (requested by : ${track.requestedBy.username})`
+        }).slice(0, 5).join('\n') + `\n\n${queue.tracks.length > 5 ? `And **${queue.tracks.length - 5}** other songs...` : `In the playlist **${queue.tracks.length}** song(s)...`}`));
+    },
+};
